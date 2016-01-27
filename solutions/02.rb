@@ -1,13 +1,13 @@
-def possition_in_front_of_snake(snake, direction)
+def position_in_front_of_snake(snake, direction)
   [snake.last.first + direction.first, snake.last.last + direction.last]
 end
 
 def move(snake, direction)
-  snake[1..-1] + [possition_in_front_of_snake(snake, direction)]
+  snake[1..-1] + [position_in_front_of_snake(snake, direction)]
 end
 
 def grow(snake, direction)
-  snake + [possition_in_front_of_snake(snake, direction)]
+  snake + [position_in_front_of_snake(snake, direction)]
 end
 
 def on_board?(position, dimensions)
@@ -16,7 +16,7 @@ def on_board?(position, dimensions)
 end
 
 def obstacle_ahead?(snake, direction, dimensions)
-  snake_ahead = possition_in_front_of_snake(snake, direction)
+  snake_ahead = position_in_front_of_snake(snake, direction)
     (not on_board?(snake_ahead, dimensions)) || snake.include?(snake_ahead)
 end
 
